@@ -1,22 +1,35 @@
 [versions]
-# 与 Backdrop 上游工程对齐，保证 Compose 运行时版本一致
-agp = "9.3.2"
-kotlin = "2.4.10"
-compose = "1.12.0"
+# 与本机 Android Studio 已缓存版本对齐（避免任何联网下载）
+agp = "9.3.3"
+kotlin = "2.4.20"
+composeAndroid = "1.12.1"
+composeMaterial3 = "1.5.0-alpha29"
 
 # 依赖
 backdrop = "2.0.1"
 kyantShapes = "1.2.1"
-coreKtx = "1.17.0"
-activityCompose = "1.12.0"
+coreKtx = "1.19.1"
+activityCompose = "1.13.0"
 xposed = "82"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+
+# Compose（直接用 androidx 坐标，不经过 Compose Multiplatform 插件）
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "composeAndroid" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "composeAndroid" }
+compose-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "composeAndroid" }
+compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "composeAndroid" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "composeMaterial3" }
+# material3 1.5.0-alpha29 传递依赖 material-ripple:1.12.0，本机缓存里只有 1.12.1；
+# 显式钉住 1.12.1（补丁版，API 兼容），避免离线态解析失败
+compose-material-ripple = { group = "androidx.compose.material", name = "material-ripple", version.ref = "composeAndroid" }
+
 # Liquid Glass 效果库
 backdrop = { group = "io.github.kyant0", name = "backdrop", version.ref = "backdrop" }
 kyant-shapes = { group = "io.github.kyant0", name = "shapes", version.ref = "kyantShapes" }
+
 # Xposed API：compileOnly，运行时由 LSPosed 提供
 xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposed" }
 
@@ -24,4 +37,3 @@ xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xp
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose" }

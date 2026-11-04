@@ -21,15 +21,17 @@ import androidx.compose.ui.unit.dp
 import com.lcs.yeetalk.core.Cfg
 import com.kyant.backdrop.backdrops.LayerBackdrop
 
-private data class Unit(val key: String, val title: String, val desc: String)
+// 数据类不能叫 Unit：会遮蔽 kotlin.Unit，让所有 `() -> Unit` 回调被解析成
+// `() -> com.lcs.yeetalk.ui.Unit`，编译期报类型不匹配。
+private data class HookUnit(val key: String, val title: String, val desc: String)
 
 private val UNITS = listOf(
-    Unit(Cfg.K.H_USER_INFO, "VIP 状态", "is_vip / vip_expire 注入 + K() 判定翻转，最小闭环"),
-    Unit(Cfg.K.H_MANAGER, "VIP 统一出口", "UserInfoManager.C() → 1，兜住不走 UserInfo 的页面"),
-    Unit(Cfg.K.H_VISITOR, "访客解锁额度", "freeUnlockSize / maxAvailableFreeUnlockIndex 顶上限"),
-    Unit(Cfg.K.H_GREET, "打招呼次数", "dump 目标类签名，白名单命中才翻转"),
-    Unit(Cfg.K.H_VIPINFO, "套餐页已开通", "VipChargeInfo 展示态，不触碰下单"),
-    Unit(Cfg.K.H_DUMP, "权益表 dump", "只读：把官方权益清单打到 logcat")
+    HookUnit(Cfg.K.H_USER_INFO, "VIP 状态", "is_vip / vip_expire 注入 + K() 判定翻转，最小闭环"),
+    HookUnit(Cfg.K.H_MANAGER, "VIP 统一出口", "UserInfoManager.C() → 1，兜住不走 UserInfo 的页面"),
+    HookUnit(Cfg.K.H_VISITOR, "访客解锁额度", "freeUnlockSize / maxAvailableFreeUnlockIndex 顶上限"),
+    HookUnit(Cfg.K.H_GREET, "打招呼次数", "dump 目标类签名，白名单命中才翻转"),
+    HookUnit(Cfg.K.H_VIPINFO, "套餐页已开通", "VipChargeInfo 展示态，不触碰下单"),
+    HookUnit(Cfg.K.H_DUMP, "权益表 dump", "只读：把官方权益清单打到 logcat")
 )
 
 /**

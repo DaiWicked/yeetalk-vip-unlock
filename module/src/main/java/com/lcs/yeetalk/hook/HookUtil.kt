@@ -121,7 +121,7 @@ object HookUtil {
     }
 
     /** 所有方法（观察某个方法被调用时打印，用于 dump） */
-    fun observe(clazz: Class<*>, name: String, block: (MethodHookParam) -> Unit) {
+    fun observe(clazz: Class<*>, name: String, block: (XC_MethodHook.MethodHookParam) -> Unit) {
         runCatching {
             XposedBridge.hookAllMethods(clazz, name, object : XC_MethodHook() {
                 override fun afterHookedMethod(param: MethodHookParam) {
