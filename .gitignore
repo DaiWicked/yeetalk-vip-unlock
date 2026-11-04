@@ -1,0 +1,48 @@
+# ============================================================
+# 本仓库 = LSPosed 模块源码。以下全部为「本地产物」，不入库。
+# 详见 docs/ARTIFACTS.md
+# ============================================================
+
+# ---- 分析素材（体积巨大，绝对不入库） ----
+artifacts/
+*.apk
+*.aab
+*.xapk
+*.apks
+
+# ---- 反编译产物 ----
+jadx_out/
+apktool_out/
+smali*/
+sources/
+resources/
+
+# ---- 构建产物 ----
+build/
+.gradle/
+.gradle-home/
+local.properties
+*.iml
+.idea/
+captures/
+.externalNativeBuild/
+.cxx/
+.navigation/
+.kotlin/
+
+# ---- 签名（绝不入库） ----
+*.keystore
+*.jks
+*.p12
+keystore.properties
+signing.properties
+
+# ---- 系统 / 编辑器 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.hprof
+*.swp
+*~
+.vscode/

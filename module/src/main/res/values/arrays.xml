@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 模块作用域：YeeTalk（包名 com.imback.palpal，2.58.2） -->
+    <string-array name="xposed_scope">
+        <item>com.imback.palpal</item>
+    </string-array>
+</resources>

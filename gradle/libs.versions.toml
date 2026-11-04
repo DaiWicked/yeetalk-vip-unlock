@@ -1,0 +1,27 @@
+[versions]
+# 与 Backdrop 上游工程对齐，保证 Compose 运行时版本一致
+agp = "9.3.2"
+kotlin = "2.4.10"
+compose = "1.12.0"
+
+# 依赖
+backdrop = "2.0.1"
+kyantShapes = "1.2.1"
+coreKtx = "1.17.0"
+activityCompose = "1.12.0"
+xposed = "82"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+# Liquid Glass 效果库
+backdrop = { group = "io.github.kyant0", name = "backdrop", version.ref = "backdrop" }
+kyant-shapes = { group = "io.github.kyant0", name = "shapes", version.ref = "kyantShapes" }
+# Xposed API：compileOnly，运行时由 LSPosed 提供
+xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposed" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "compose" }
