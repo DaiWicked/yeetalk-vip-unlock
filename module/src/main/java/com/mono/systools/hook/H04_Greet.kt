@@ -1,8 +1,8 @@
-package com.lcs.yeetalk.hook
+package com.mono.systools.hook
 
-import com.lcs.yeetalk.core.Cfg
-import com.lcs.yeetalk.core.LogX
-import com.lcs.yeetalk.core.Prefs
+import com.mono.systools.core.Cfg
+import com.mono.systools.core.LogX
+import com.mono.systools.core.Prefs
 
 /**
  * H04 · 打招呼次数限制

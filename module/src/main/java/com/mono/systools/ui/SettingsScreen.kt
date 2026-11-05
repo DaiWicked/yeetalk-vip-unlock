@@ -1,4 +1,4 @@
-package com.lcs.yeetalk.ui
+package com.mono.systools.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,11 +18,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.lcs.yeetalk.core.Cfg
+import com.mono.systools.core.Cfg
 import com.kyant.backdrop.backdrops.LayerBackdrop
 
 // 数据类不能叫 Unit：会遮蔽 kotlin.Unit，让所有 `() -> Unit` 回调被解析成
-// `() -> com.lcs.yeetalk.ui.Unit`，编译期报类型不匹配。
+// `() -> com.mono.systools.ui.Unit`，编译期报类型不匹配。
 private data class HookUnit(val key: String, val title: String, val desc: String)
 
 private val UNITS = listOf(

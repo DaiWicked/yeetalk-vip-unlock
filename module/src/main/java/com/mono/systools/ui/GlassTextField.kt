@@ -1,4 +1,4 @@
-package com.lcs.yeetalk.ui
+package com.mono.systools.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth

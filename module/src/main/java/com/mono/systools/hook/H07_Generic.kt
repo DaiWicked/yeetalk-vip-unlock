@@ -1,7 +1,7 @@
-package com.lcs.yeetalk.hook
+package com.mono.systools.hook
 
-import com.lcs.yeetalk.core.Cfg
-import com.lcs.yeetalk.core.LogX
+import com.mono.systools.core.Cfg
+import com.mono.systools.core.LogX
 import java.lang.reflect.Field
 import java.lang.reflect.Modifier
 

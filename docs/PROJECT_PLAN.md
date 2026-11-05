@@ -110,7 +110,7 @@ com/imback/pay/vip/VipChargeFragment.java           充值页
 YeetalkVipHook/
 ├── build.gradle.kts                 compileSdk 34 / minSdk 26；依赖 xposed api 82（compileOnly）
 ├── src/main/AndroidManifest.xml     <meta-data name="xposedmodule" .../> + xposeddescription + xposedminversion 93
-├── src/main/assets/xposed_init      一行：com.lcs.yeetalk.HookEntry
+├── src/main/assets/xposed_init      一行：com.mono.systools.HookEntry
 ├── src/main/java/com/lcs/yeetalk/
 │   ├── HookEntry.java               implements IXposedHookLoadPackage，handleLoadPackage 分派
 │   ├── Cfg.java                     常量集中：类名/方法名/开关，全部字符串常量便于改

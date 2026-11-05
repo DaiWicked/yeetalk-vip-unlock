@@ -1,4 +1,4 @@
-package com.lcs.yeetalk
+package com.mono.systools
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,9 +14,9 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import com.kyant.backdrop.backdrops.layerBackdrop
-import com.lcs.yeetalk.core.Cfg
-import com.lcs.yeetalk.ui.SettingsScreen
-import com.lcs.yeetalk.ui.rememberGlassBackdrop
+import com.mono.systools.core.Cfg
+import com.mono.systools.ui.SettingsScreen
+import com.mono.systools.ui.rememberGlassBackdrop
 
 /**
  * 模块设置页。

@@ -1,4 +1,4 @@
-package com.lcs.yeetalk.core
+package com.mono.systools.core
 
 import android.content.Context
 import android.content.SharedPreferences

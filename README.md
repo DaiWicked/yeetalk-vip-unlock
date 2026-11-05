@@ -1,4 +1,4 @@
-# YeeTalk VIP Unlocker · LSPosed Module
+# 系统工具 · LSPosed Module
 
 面向 **YeeTalk 2.58.2**（`com.imback.palpal`，versionCode 1955）的 LSPosed 模块：在运行期把目标 App 的**本地 VIP 状态**翻转为"已开通"。
 

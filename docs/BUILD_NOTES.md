@@ -110,7 +110,7 @@ No cached version of X available for offline mode.
 ```
 BUILD SUCCESSFUL in 1m 35s
 module/build/outputs/apk/debug/module-debug.apk   13 MB
-  ├─ assets/xposed_init → com.lcs.yeetalk.HookEntry
+  ├─ assets/xposed_init → com.mono.systools.HookEntry
   └─ classes.dex
 ```
 

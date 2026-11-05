@@ -1,4 +1,4 @@
-package com.lcs.yeetalk.core
+package com.mono.systools.core
 
 /**
  * 全局常量。目标 App 的类名/字段名一旦随版本变化，改这里即可，不用动 hook 逻辑。
@@ -11,7 +11,7 @@ object Cfg {
     const val TAG = "YTVIP"
 
     /** 模块自己的包名（用于 XSharedPreferences 跨进程读配置） */
-    const val MODULE_PKG = "com.lcs.yeetalk"
+    const val MODULE_PKG = "com.mono.systools"
 
     /** 目标 App */
     const val TARGET_PKG = "com.imback.palpal"

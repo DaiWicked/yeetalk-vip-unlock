@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">YeeTalk VIP Unlocker</string>
-    <string name="xposed_description">在本地进程内解锁 YeeTalk 的 VIP 展示与本地门控（仅本机测试）</string>
+    <string name="app_name">系统工具</string>
+    <string name="xposed_description">本地界面状态调试（仅用于自有设备研究测试）</string>
 </resources>

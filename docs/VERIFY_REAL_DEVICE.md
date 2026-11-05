@@ -1,6 +1,8 @@
 # 真机验证记录（2026-11-05）
 
 目标 App：`com.imback.palpal` YeeTalk 2.58.2 (versionCode 1955)
+> 注：本文记录均基于开发期包名 `com.lcs.yeetalk`。正式版改名 `com.mono.systools` 后逻辑不变，仅日志前缀变化。
+
 模块：`com.lcs.yeetalk`（debug APK，13 MB）
 
 ## 1. 测试环境

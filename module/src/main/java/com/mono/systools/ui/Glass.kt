@@ -1,4 +1,4 @@
-package com.lcs.yeetalk.ui
+package com.mono.systools.ui
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background

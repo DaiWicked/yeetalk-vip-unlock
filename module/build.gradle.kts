@@ -1,20 +1,43 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
 }
 
+// 签名配置从 keystore/keystore.properties 读取，缺失时自动回退 debug 签名
+val keystoreProps = Properties().apply {
+    val f = rootProject.file("keystore/keystore.properties")
+    if (f.exists()) f.inputStream().use { load(it) }
+}
+val hasReleaseKey = keystoreProps.getProperty("storePassword")?.isNotBlank() == true
+
 android {
-    namespace = "com.lcs.yeetalk"
+    namespace = "com.mono.systools"
     compileSdk = 37
     // 本机仅装了 36.0.0；显式指定可避免 AGP 自动下载 37.x 到系统盘
     buildToolsVersion = "36.0.0"
 
     defaultConfig {
-        applicationId = "com.lcs.yeetalk"
+        applicationId = "com.mono.systools"
         minSdk = 27
         targetSdk = 37
-        versionCode = 1
+        versionCode = 2
         versionName = "1.0.0"
+    }
+
+    signingConfigs {
+        if (hasReleaseKey) {
+            create("release") {
+                storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
+                storePassword = keystoreProps.getProperty("storePassword")
+                keyAlias = keystoreProps.getProperty("keyAlias")
+                keyPassword = keystoreProps.getProperty("keyPassword")
+                enableV1Signing = true
+                enableV2Signing = true
+                enableV3Signing = true
+            }
+        }
     }
 
     buildTypes {
@@ -22,8 +45,10 @@ android {
             isMinifyEnabled = false
         }
         release {
-            // hook 依赖类名/方法名稳定，且需要反射，此处不做混淆
+            // hook 单元大量依赖类名/方法名/注解字符串，且需反射，不做代码混淆
             isMinifyEnabled = false
+            isShrinkResources = false
+            signingConfig = if (hasReleaseKey) signingConfigs.getByName("release") else null
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -51,6 +76,7 @@ android {
 
     lint {
         abortOnError = false
+        checkReleaseBuilds = false
     }
 }
 

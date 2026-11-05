@@ -1,16 +1,16 @@
-package com.lcs.yeetalk
+package com.mono.systools
 
 import android.app.AndroidAppHelper
-import com.lcs.yeetalk.core.Cfg
-import com.lcs.yeetalk.core.LogX
-import com.lcs.yeetalk.core.Prefs
-import com.lcs.yeetalk.hook.H01UserInfo
-import com.lcs.yeetalk.hook.H02Manager
-import com.lcs.yeetalk.hook.H03Visitor
-import com.lcs.yeetalk.hook.H04Greet
-import com.lcs.yeetalk.hook.H05VipInfo
-import com.lcs.yeetalk.hook.H06Dump
-import com.lcs.yeetalk.hook.H07Generic
+import com.mono.systools.core.Cfg
+import com.mono.systools.core.LogX
+import com.mono.systools.core.Prefs
+import com.mono.systools.hook.H01UserInfo
+import com.mono.systools.hook.H02Manager
+import com.mono.systools.hook.H03Visitor
+import com.mono.systools.hook.H04Greet
+import com.mono.systools.hook.H05VipInfo
+import com.mono.systools.hook.H06Dump
+import com.mono.systools.hook.H07Generic
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
