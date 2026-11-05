@@ -10,6 +10,7 @@ import com.lcs.yeetalk.hook.H03Visitor
 import com.lcs.yeetalk.hook.H04Greet
 import com.lcs.yeetalk.hook.H05VipInfo
 import com.lcs.yeetalk.hook.H06Dump
+import com.lcs.yeetalk.hook.H07Generic
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
@@ -56,6 +57,7 @@ class HookEntry : IXposedHookLoadPackage {
             safe("H04") { H04Greet.install(cl) }
             safe("H05") { H05VipInfo.install(cl) }
             safe("H06") { H06Dump.install(cl) }
+            safe("H07") { H07Generic.install(cl) }
 
             LogX.i("========== [YTVIP] 注入结束 ==========")
         }.onFailure { LogX.e("HookEntry 顶层异常", it) }

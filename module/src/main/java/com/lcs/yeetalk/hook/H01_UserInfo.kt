@@ -35,13 +35,19 @@ object H01UserInfo {
         LogX.i("H01 字段定位：is_vip=${fVip?.name ?: "未找到"}, vip_expire=${fExp?.name ?: "未找到"}")
 
         // 1) 构造后注入：覆盖 Parcel / new 出来的实例
+        var built = 0
         HookUtil.afterAllConstructors(clazz) { obj ->
             HookUtil.setInt(obj, fVip, 1)
             HookUtil.setInt(obj, fExp, HookUtil.vipExpireSec())
+            if (built++ < 3) {
+                val e = runCatching { fVip?.let { it.isAccessible = true; it.getInt(obj) } }.getOrNull()
+                val x = runCatching { fExp?.let { it.isAccessible = true; it.getInt(obj) } }.getOrNull()
+                LogX.i("H01 构造注入#$built：E=$e F=$x")
+            }
         }
 
         // 2) 状态读取方法翻转（真正生效的一层，抗 Gson 反序列化绕过构造的情况）
-        HookUtil.hookBool(clazz, "K", true)
+        HookUtil.hookTraced(clazz, "K", true)
 
         HookUtil.hookBool(clazz, "H", false)
         HookUtil.hookBool(clazz, "I", false)

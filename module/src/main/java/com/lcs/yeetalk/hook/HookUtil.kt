@@ -83,6 +83,27 @@ object HookUtil {
     }.onFailure { LogX.w("hook ${clazz.simpleName}.$name 失败：${it.message}") }.getOrDefault(false)
 
     /**
+     * 带调用栈追踪的 hook：正常改写返回值，同时每个方法只打印前 [limit] 次命中及调用栈。
+     * 用途：定位"到底是谁在读这个判定"——确认 UI 数据源是否真的走这里。
+     */
+    fun hookTraced(clazz: Class<*>, name: String, value: Any?, limit: Int = 3): Boolean = runCatching {
+        var count = 0
+        XposedBridge.hookAllMethods(clazz, name, object : XC_MethodHook() {
+            private var n = 0
+            override fun afterHookedMethod(param: MethodHookParam) {
+                param.result = value
+                if (n++ < limit) {
+                    val st = android.util.Log.getStackTraceString(Throwable())
+                        .lineSequence().drop(1).take(12).joinToString("\n")
+                    LogX.i("${clazz.simpleName}.$name() 命中#$n → $value\n$st")
+                }
+            }
+        }).also { count = it.size }
+        LogX.i("traced ${clazz.simpleName}.$name → $value (${count} 处)")
+        count > 0
+    }.onFailure { LogX.w("traced ${clazz.simpleName}.$name 失败：${it.message}") }.getOrDefault(false)
+
+    /**
      * 把所有同名方法的结果改成"真值"，返回类型自适应。
      * 用于返回类型不确定的混淆方法（例如 UserInfoManager.D/E/F/G 可能是 boolean 也可能是 int）。
      */
