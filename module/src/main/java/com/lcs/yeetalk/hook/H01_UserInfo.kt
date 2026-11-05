@@ -47,7 +47,7 @@ object H01UserInfo {
         }
 
         // 2) 状态读取方法翻转（真正生效的一层，抗 Gson 反序列化绕过构造的情况）
-        HookUtil.hookTraced(clazz, "K", true)
+        HookUtil.hookTraced(clazz, "K", true, 60)
 
         HookUtil.hookBool(clazz, "H", false)
         HookUtil.hookBool(clazz, "I", false)

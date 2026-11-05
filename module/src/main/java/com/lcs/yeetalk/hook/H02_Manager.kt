@@ -27,7 +27,7 @@ object H02Manager {
         val clazz = HookUtil.clazz(Cfg.T.USER_INFO_MANAGER, cl) ?: return
 
         // C() 明确返回 int（带调用栈追踪，用于确认 UI 是否真的走这里）
-        HookUtil.hookTraced(clazz, "C", 1)
+        HookUtil.hookTraced(clazz, "C", 1, 60)
 
         // E/D/F/G 返回类型不确定，真值自适应（boolean → true，int → 1）
         listOf("E", "D", "F", "G").forEach { HookUtil.hookTruthy(clazz, it) }
