@@ -26,11 +26,11 @@ import com.kyant.backdrop.backdrops.LayerBackdrop
 private data class HookUnit(val key: String, val title: String, val desc: String)
 
 private val UNITS = listOf(
-    HookUnit(Cfg.K.H_USER_INFO, "VIP 状态", "is_vip / vip_expire 注入 + K() 判定翻转，最小闭环"),
-    HookUnit(Cfg.K.H_MANAGER, "VIP 统一出口", "UserInfoManager.C() → 1，兜住不走 UserInfo 的页面"),
-    HookUnit(Cfg.K.H_VISITOR, "访客解锁额度", "freeUnlockSize / maxAvailableFreeUnlockIndex 顶上限"),
-    HookUnit(Cfg.K.H_GREET, "打招呼次数", "dump 目标类签名，白名单命中才翻转"),
-    HookUnit(Cfg.K.H_VIPINFO, "套餐页已开通", "VipChargeInfo 展示态，不触碰下单"),
+    HookUnit(Cfg.K.H_USER_INFO, "VIP 状态", "✅ 实测生效 · is_vip / vip_expire 注入 + K() 翻转"),
+    HookUnit(Cfg.K.H_MANAGER, "VIP 统一出口", "✅ 实测生效 · UserInfoManager.C() → 1，兜住不走 UserInfo 的页面"),
+    HookUnit(Cfg.K.H_VISITOR, "访客解锁额度", "⚠️ 目标类被 R8 混淆，未定位（开关无效）"),
+    HookUnit(Cfg.K.H_GREET, "打招呼次数", "⚠️ 目标类被 R8 混淆，未定位（开关无效）"),
+    HookUnit(Cfg.K.H_VIPINFO, "套餐页已开通", "⚠️ 目标类被 R8 混淆，未定位（开关无效）"),
     HookUnit(Cfg.K.H_DUMP, "权益表 dump", "只读：把官方权益清单打到 logcat")
 )
 
@@ -109,7 +109,7 @@ fun SettingsScreen(
 
         // ---------- 访客额度 ----------
         GlassCard(backdrop, Modifier.fillMaxWidth(), tintAlpha = 0.10f) {
-            GlassRow("访客解锁额度", "H03 生效，服务端仍可能限流") {
+            GlassRow("访客解锁额度", "H03 目标类未定位，此项暂不生效；服务端另有限流") {
                 GlassButton("−", {
                     unlockCount = (unlockCount - 100).coerceAtLeast(0)
                     prefs.edit().putInt(Cfg.K.UNLOCK_COUNT, unlockCount).apply()
