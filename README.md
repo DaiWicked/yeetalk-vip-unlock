@@ -1,5 +1,7 @@
 # 系统工具 · LSPosed Module
 
+[![Release](https://img.shields.io/github/v/release/DaiWicked/yeetalk-vip-unlock?label=download&color=green)](https://github.com/DaiWicked/yeetalk-vip-unlock/releases/latest)
+
 面向 **YeeTalk 2.58.2**（`com.imback.palpal`，versionCode 1955）的 LSPosed 模块：在运行期把目标 App 的**本地 VIP 状态**翻转为"已开通"。
 
 UI 采用 **Liquid Glass（玻璃拟态）** 风格，底层复用 [Kyant0/Backdrop](https://github.com/Kyant0/AndroidLiquidGlass)（Apache-2.0）。
